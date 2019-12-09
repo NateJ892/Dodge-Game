@@ -5,10 +5,11 @@ class GameConstants  //Couldn't rename, too much relied on "GameConstants"w at t
   public final int laneOne = roadPosition;
   public final int laneTwo = (height/16)*7;
   public final int laneThree = (height/16)*8;
+  public final int frameCountUpdate = 40;
   
   //Player
   public final int playerXOffset = 40;
-  public final int playerYOffset = 10;
+  public final int playerYOffset = 15;
   
   public final int playerWidth = 40;
   public final int playerHeight = 20;
