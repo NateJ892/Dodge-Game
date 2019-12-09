@@ -1,5 +1,7 @@
 private int Score = 0;
+
 GameConstants c;
+GameFunctions G;
 
 void setup()
 {
@@ -9,37 +11,53 @@ void setup()
   surface.setResizable(false);
   
   c = new GameConstants();
+  G = new GameFunctions();
 }
 
 void draw()
 {
-  createScene();
+  G.createScene();
+  
   if (c.playerIsAlive)
   {
-    Score += 1;
+    fill(c.White);
+    text("Score: " + Score, 10, 10);
+    
+    G.drawPlayer(c.playerPosition);
   }
   else
   {
-    
+    //TODO: DEATH
   }
 }
 
-void createScene()
-{
-  background(c.Green);
-  fill(c.Road);
-  noStroke();
-  rect(0, c.roadPosition, width, 160);
-  
-  stroke(c.Yellow);
-  line(0, c.laneTwo, width, c.laneTwo);
-  line(0, c.laneThree, width, c.laneThree);
-}
+
 
 void keyReleased()
 {
-  if (keyCode == UP)
+  switch (c.playerPosition)
   {
-    
+    case laneOne:
+      if (keyCode == DOWN)
+      {
+        c.playerPosition = position.playerPosition.laneTwo;
+      }  //Nothing For Up
+      break;
+    case laneTwo:
+      if (keyCode == UP)
+      {
+        c.playerPosition = position.playerPosition.laneOne;
+      }
+      if (keyCode == DOWN)
+      {
+        c.playerPosition = position.playerPosition.laneThree;
+      }
+      break;
+    case laneThree:
+      if (keyCode == UP)
+      {
+        c.playerPosition = position.playerPosition.laneTwo;
+      }  //Do Nothing For Down
+      break;
   }
 }
