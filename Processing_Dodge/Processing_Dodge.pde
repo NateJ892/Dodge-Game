@@ -2,6 +2,7 @@ private int Score = 0;
 
 GameConstants c;
 GameFunctions G;
+Obstacle[] Ob;
 
 void setup()
 {
@@ -17,6 +18,7 @@ void setup()
 void draw()
 {
   G.createScene();
+  Score += G.updateScore();
   
   if (c.playerIsAlive)
   {
