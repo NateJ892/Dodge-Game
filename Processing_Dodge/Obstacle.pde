@@ -1,12 +1,24 @@
 class Obstacle
 {
-  private int Lane;
-  private float Speed;
   GameConstants c = new GameConstants();
+  private float Speed;
+  private position.playerPosition Lane;
+  private PVector Position;
   
-  Obstacle(int LaneNum, float Obstacle_Speed)
+  public void init(position.playerPosition pos, float Obstacle_Speed)
   {
-    Lane = LaneNum;
+    Lane = pos;
     Speed = Obstacle_Speed;
+    
+    Position = new PVector((int) random(width, width+c.StartingPoints), c.getLane(Lane)+c.entityYOffset);
+  }
+  
+  void update()
+  {
+    noStroke();
+    fill(c.Enemy);
+    rect(Position.x, Position.y, c.entityWidth, c.entityHeight);
+    Position.x -= 1;
+    
   }
 }
