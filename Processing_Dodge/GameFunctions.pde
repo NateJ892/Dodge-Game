@@ -23,17 +23,17 @@ class GameFunctions
     if (pos == position.playerPosition.laneOne)
     {
       noStroke();
-      rect(G.playerXOffset, G.laneOne+G.playerYOffset, G.playerWidth, G.playerHeight);
+      rect(G.entityXOffset, G.laneOne+G.entityYOffset, G.entityWidth, G.entityHeight);
     }
     else if (pos == position.playerPosition.laneTwo)
     {
       noStroke();
-      rect(G.playerXOffset, G.laneTwo+G.playerYOffset, G.playerWidth, G.playerHeight);
+      rect(G.entityXOffset, G.laneTwo+G.entityYOffset, G.entityWidth, G.entityHeight);
     }
     else if (pos == position.playerPosition.laneThree)
     {
       noStroke();
-      rect(G.playerXOffset, G.laneThree+G.playerYOffset, G.playerWidth, G.playerHeight);
+      rect(G.entityXOffset, G.laneThree+G.entityYOffset, G.entityWidth, G.entityHeight);
     }
   }
   
