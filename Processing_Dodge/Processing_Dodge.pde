@@ -2,7 +2,6 @@ private int Score = 0;
 
 GameConstants c;
 GameFunctions G;
-Obstacle Ob;  //TODO: Create 10 Random Cars into one Array/Buffer
 
 void setup()
 {
@@ -13,8 +12,8 @@ void setup()
   
   c = new GameConstants();
   G = new GameFunctions();
-  Ob = new Obstacle();
-  Ob.init();
+  
+  G.startObstacles(c.numberOfObstacles);
 }
 
 void draw()
@@ -25,20 +24,13 @@ void draw()
     Score += G.updateScore();
     
     fill(c.White);
-    text("Score: " + Score + "\n" + "FrameRate: " + round(frameRate), 10, 10);
-    
+    text("Score: " + Score + "    " + "FrameRate: " + round(frameRate), 10, 15);
     G.drawPlayer(c.playerPosition);
-    Ob.update();
+    G.updateObstacles();
   }
   else
   {
-    background(0);
-    textSize(64);
-    textAlign(CENTER);
-    text("You Died!", width/2, (height/2)-40);
-    textSize(32);
-    text("Final Score: " + Score, width/2, height/2);
-    noLoop();
+    G.createDeathScene();
   }
 }
 
@@ -51,8 +43,7 @@ void keyReleased()
     switch (c.playerPosition)
     {
       case laneOne:
-        if (keyCode == DOWN) 
-          c.playerPosition = position.playerPosition.laneTwo;
+        if (keyCode == DOWN) c.playerPosition = position.playerPosition.laneTwo;
         break;
       case laneTwo:
         if (keyCode == UP) c.playerPosition = position.playerPosition.laneOne;
