@@ -1,6 +1,6 @@
 class GameConstants  //Couldn't rename, too much relied on "GameConstants" at this point, same for playerPosition enum
 {
-  //Constant Variables
+  //Constants
   public final int roadPosition = (height/8)*3;
   public final int laneOne = roadPosition;
   public final int laneTwo = (height/16)*7;
