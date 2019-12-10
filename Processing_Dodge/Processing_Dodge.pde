@@ -2,7 +2,7 @@ private int Score = 0;
 
 GameConstants c;
 GameFunctions G;
-Obstacle Ob;
+Obstacle Ob;  //TODO: Create 10 Random Car Arrays
 
 void setup()
 {
@@ -14,16 +14,16 @@ void setup()
   c = new GameConstants();
   G = new GameFunctions();
   Ob = new Obstacle();
-  Ob.init(position.playerPosition.laneOne, c.obstacleSpeed);
+  Ob.init(c.obstacleSpeed);
 }
 
 void draw()
 {
-  G.createScene();
-  Score += G.updateScore();
-  
   if (c.playerIsAlive)
   {
+    G.createScene();
+    Score += G.updateScore();
+    
     fill(c.White);
     text("Score: " + Score + "\n" + "FrameRate: " + round(frameRate), 10, 10);
     
@@ -32,7 +32,12 @@ void draw()
   }
   else
   {
-    //TODO: DEATH
+    background(0);
+    textSize(64);
+    textAlign(CENTER);
+    text("You Died!", width/2, (height/2)-40);
+    textSize(32);
+    text("Final Score: " + Score, width/2, height/2);
     noLoop();
   }
 }
@@ -46,26 +51,15 @@ void keyReleased()
     switch (c.playerPosition)
     {
       case laneOne:
-        if (keyCode == DOWN)
-        {
+        if (keyCode == DOWN) 
           c.playerPosition = position.playerPosition.laneTwo;
-        }  //Nothing For Up
         break;
       case laneTwo:
-        if (keyCode == UP)
-        {
-          c.playerPosition = position.playerPosition.laneOne;
-        }
-        if (keyCode == DOWN)
-        {
-          c.playerPosition = position.playerPosition.laneThree;
-        }
+        if (keyCode == UP) c.playerPosition = position.playerPosition.laneOne;
+        if (keyCode == DOWN) c.playerPosition = position.playerPosition.laneThree;
         break;
       case laneThree:
-        if (keyCode == UP)
-        {
-          c.playerPosition = position.playerPosition.laneTwo;
-        }  //Do Nothing For Down
+        if (keyCode == UP) c.playerPosition = position.playerPosition.laneTwo;
         break;
     }
   }
