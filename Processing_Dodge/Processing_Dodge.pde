@@ -2,7 +2,7 @@ private int Score = 0;
 
 GameConstants c;
 GameFunctions G;
-Obstacle Ob;  //TODO: Create 10 Random Car Arrays
+Obstacle Ob;  //TODO: Create 10 Random Cars into one Array/Buffer
 
 void setup()
 {
@@ -14,7 +14,7 @@ void setup()
   c = new GameConstants();
   G = new GameFunctions();
   Ob = new Obstacle();
-  Ob.init(c.obstacleSpeed);
+  Ob.init();
 }
 
 void draw()
