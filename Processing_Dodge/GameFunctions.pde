@@ -2,6 +2,7 @@ class GameFunctions
 {  
   GameConstants G = new GameConstants();
   private int tickTally = 0;
+  Obstacle[] O;
   
   public void createScene()
   {
@@ -18,8 +19,20 @@ class GameFunctions
     tickTally += 1;  //TickTally == frameCount
   }
   
+  public void createDeathScene()
+  {
+    background(0);
+    textSize(64);
+    textAlign(CENTER);
+    text("You Died!", width/2, (height/2)-40);
+    textSize(32);
+    text("Final Score: " + Score, width/2, height/2);
+    noLoop();
+  }
+  
   public void drawPlayer(position.playerPosition pos)
   {
+    fill(c.White);
     if (pos == position.playerPosition.laneOne)
     {
       noStroke();
@@ -37,15 +50,27 @@ class GameFunctions
     }
   }
   
+  public void startObstacles(int size)
+  {
+    O = new Obstacle[size];
+    for (int i = 0; i < size; i++)
+    {
+      O[i] = new Obstacle();
+      O[i].init();
+    }
+  }
+  
+  public void updateObstacles()
+  {
+    for (int i = 0; i < c.numberOfObstacles; i++)
+    {
+      O[i].update();
+    }
+  }
+  
   public int updateScore()
   {
-    if ((tickTally % G.frameCountUpdate) == 0)
-    {
-      return 1;
-    }
-    else
-    {
-      return 0;
-    }
+    if ((tickTally % G.frameCountUpdate) == 0) return 1;
+    else return 0;
   }
 }
