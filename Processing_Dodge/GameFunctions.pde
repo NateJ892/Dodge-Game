@@ -15,7 +15,7 @@ class GameFunctions
     line(0, c.laneTwo, width, c.laneTwo);
     line(0, c.laneThree, width, c.laneThree);
     
-    tickTally += 1;
+    tickTally += 1;  //TickTally == frameCount
   }
   
   public void drawPlayer(position.playerPosition pos)
