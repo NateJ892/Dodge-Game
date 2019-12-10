@@ -5,14 +5,16 @@ class GameConstants  //Couldn't rename, too much relied on "GameConstants" at th
   public final int laneOne = roadPosition;
   public final int laneTwo = (height/16)*7;
   public final int laneThree = (height/16)*8;
-  public final int StartingBound = 5;
-  public final int frameCountUpdate = round(frameRate);
+  
+  public final int frameCountUpdate = round(frameRate)*2;
+  public final int entitySpawnRate = 2*frameCountUpdate;
   
   //Entity
   public final int entityXOffset = 40;
   public final int entityYOffset = 15;
   public final int entityWidth = 40;
   public final int entityHeight = 20;
+  public final int numberOfObstacles = 10;
   
   //Colors
   public final color Yellow = color(255, 255, 0);
@@ -24,16 +26,18 @@ class GameConstants  //Couldn't rename, too much relied on "GameConstants" at th
   
   //Dynamic Variables
   public float obstacleSpeed = 2;
-  public boolean playerIsAlive = true;
-  public position.playerPosition playerPosition = position.playerPosition.laneThree;
+  public float entityLiveTime = 20;
+  public int spawnDistanceMin = 50;
   
+  public boolean playerIsAlive = true;
+  public position.playerPosition playerPosition = position.playerPosition.laneThree;  
   
   public int getLane(position.playerPosition Pos)
   {
     switch (Pos)
     {
-      case laneOne:
-        return laneOne;
+      case laneOne:  //Checks Lane 1 In Position
+        return laneOne;  //Return Static Int Constants If True
       case laneTwo:
         return laneTwo;
       case laneThree:
