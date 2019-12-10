@@ -5,7 +5,8 @@ class GameConstants  //Couldn't rename, too much relied on "GameConstants" at th
   public final int laneOne = roadPosition;
   public final int laneTwo = (height/16)*7;
   public final int laneThree = (height/16)*8;
-  public final int StartingPoints = 5;
+  public final int StartingBound = 5;
+  public final int frameCountUpdate = round(frameRate);
   
   //Entity
   public final int entityXOffset = 40;
@@ -22,10 +23,10 @@ class GameConstants  //Couldn't rename, too much relied on "GameConstants" at th
   public final color Enemy = color(255, 0, 0);
   
   //Dynamic Variables
-  public float obstacleSpeed = 1;
+  public float obstacleSpeed = 2;
   public boolean playerIsAlive = true;
   public position.playerPosition playerPosition = position.playerPosition.laneThree;
-  public int frameCountUpdate = round(frameRate);
+  
   
   public int getLane(position.playerPosition Pos)
   {
