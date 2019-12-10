@@ -11,15 +11,19 @@ class Obstacle
     else if (TEMP == 2) Lane = position.playerPosition.laneTwo;
     else if (TEMP == 3) Lane = position.playerPosition.laneThree;
     
-    Position = new PVector((int) random(width, width+c.StartingBound), c.getLane(Lane)+c.entityYOffset);
+    c.spawnDistanceMin = (int)random(c.spawnDistanceMin, c.spawnDistanceMin+1000);
+    Position = new PVector((int) random(width, width+c.spawnDistanceMin), c.getLane(Lane)+c.entityYOffset);
   }
   
-  void update()
+  public void update()
   {
     noStroke();
     fill(c.Enemy);
     rect(Position.x, Position.y, c.entityWidth, c.entityHeight);
-    Position.x -= c.obstacleSpeed;
-    //TODO: Check Collision & Execute Death Scene
+    
+    if (Position.x == (-c.entityHeight)) init();
+    else Position.x -= c.obstacleSpeed;
   }
+  
+  //private void checkCollision(){}  //TODO: Check Collision & Execute Death Scene
 }
