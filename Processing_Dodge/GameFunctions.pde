@@ -2,7 +2,14 @@ class GameFunctions
 {  
   GameConstants G = new GameConstants();
   private int tickTally = 0;
-  Obstacle[] O;
+  private int entityTicker = 0;
+  Obstacle[] O = new Obstacle[9];
+  private boolean[][] Patterns = {
+    {true, false, true},
+    {false, true, true},
+    {true, true, false},
+    {false, true, false},
+    {false, false, true}};
   
   public void createScene()
   {
@@ -50,27 +57,64 @@ class GameFunctions
     }
   }
   
-  public void startObstacles(int size)
-  {
-    O = new Obstacle[size];
-    for (int i = 0; i < size; i++)
-    {
-      O[i] = new Obstacle();
-      O[i].init();
-    }
-  }
-  
-  public void updateObstacles()
-  {
-    for (int i = 0; i < c.numberOfObstacles; i++)
-    {
-      O[i].update();
-    }
-  }
-  
   public int updateScore()
   {
     if ((tickTally % G.frameCountUpdate) == 0) return 1;
     else return 0;
+  }
+  
+  public void startObstacles()
+  {
+    if ((entityTicker % c.spawnRate) == 0)
+    {
+      int Random = (int)random(-1, 5);
+      if (c.spawnLoopCount == 0)
+      {
+        c.spawnLoopCount++;
+        for (int i = 0; i < 3; i++)
+        {
+          if (Patterns[Random][i] == true)
+          {
+            O[i] = new Obstacle();
+            O[i].init(i+1);
+          }
+        }
+      }
+      else if (c.spawnLoopCount == 1)
+      {
+        c.spawnLoopCount++;
+        for (int i = 0; i < 3; i++)
+        {
+          if (Patterns[Random][i] == true)
+          {
+            O[i+3] = new Obstacle();
+            O[i+3].init(i+1);
+          }
+        }
+      }
+      else if (c.spawnLoopCount == 2)
+      {
+        c.spawnLoopCount++;
+        for (int i = 0; i < 3; i++)
+        {
+          if (Patterns[Random][i] == true)
+          {
+            O[i+6] = new Obstacle();
+            O[i+6].init(i+1);
+          }
+        }
+      }
+    }
+  }
+  
+  public void updateThem()
+  {
+    for (int i = 0; i < 9; i++)
+    {
+      if (O[i] != null)
+      {
+        O[i].update();
+      }
+    }
   }
 }
