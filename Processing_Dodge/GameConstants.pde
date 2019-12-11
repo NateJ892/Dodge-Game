@@ -14,7 +14,7 @@ class GameConstants  //Couldn't rename, too much relied on "GameConstants" at th
   public final int entityYOffset = 15;
   public final int entityWidth = 40;
   public final int entityHeight = 20;
-  public final int numberOfObstacles = 10;
+  public final int spawnRate = frameCountUpdate*6;
   
   //Colors
   public final color Yellow = color(255, 255, 0);
@@ -27,7 +27,8 @@ class GameConstants  //Couldn't rename, too much relied on "GameConstants" at th
   //Dynamic Variables
   public float obstacleSpeed = 2;
   public float entityLiveTime = 20;
-  public int spawnDistanceMin = 50;
+  
+  public int spawnLoopCount = 0;
   
   public boolean playerIsAlive = true;
   public position.playerPosition playerPosition = position.playerPosition.laneThree;  
