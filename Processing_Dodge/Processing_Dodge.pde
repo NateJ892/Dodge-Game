@@ -12,8 +12,6 @@ void setup()
   
   c = new GameConstants();
   G = new GameFunctions();
-  
-  G.startObstacles(c.numberOfObstacles);
 }
 
 void draw()
@@ -26,7 +24,8 @@ void draw()
     fill(c.White);
     text("Score: " + Score + "    " + "FrameRate: " + round(frameRate), 10, 15);
     G.drawPlayer(c.playerPosition);
-    G.updateObstacles();
+    G.startObstacles();
+    G.updateThem();
   }
   else
   {
