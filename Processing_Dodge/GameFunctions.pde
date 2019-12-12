@@ -24,6 +24,7 @@ class GameFunctions
   public void createDeathScene()
   {
     background(0);
+    delay(1000);
     textSize(64);
     textAlign(CENTER);
     text("You Died!", width/2, (height/2)-40);
@@ -72,13 +73,13 @@ class GameFunctions
     }
   }
   
-  public void updateThem(position.playerPosition pos)
+  public void updateThem(position.playerPosition pos, boolean alive)
   {
     for (int i = 0; i < 9; i++)
     {
       if (O[i] != null)
       {
-        O[i].update(pos);
+        O[i].update(pos, alive);
       }
     }
   }
