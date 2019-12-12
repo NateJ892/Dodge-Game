@@ -29,7 +29,7 @@ void draw()
   }
   else
   {
-    background(0);
+    //background(0);
     G.createDeathScene();
   }
 }
