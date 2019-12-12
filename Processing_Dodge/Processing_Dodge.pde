@@ -25,10 +25,11 @@ void draw()
     text("Score: " + Score + "    " + "FrameRate: " + round(frameRate), 10, 15);
     G.drawPlayer(c.playerPosition);
     G.startObstacles();
-    G.updateThem();
+    G.updateThem(c.playerPosition);
   }
   else
   {
+    background(0);
     G.createDeathScene();
   }
 }
