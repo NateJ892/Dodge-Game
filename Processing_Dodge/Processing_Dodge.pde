@@ -25,7 +25,7 @@ void draw()
     text("Score: " + Score + "    " + "FrameRate: " + round(frameRate), 10, 15);
     G.drawPlayer(c.playerPosition);
     G.startObstacles();
-    G.updateThem(c.playerPosition);
+    G.updateThem(c.playerPosition, c.playerIsAlive);
   }
   else
   {
