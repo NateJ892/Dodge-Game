@@ -7,7 +7,7 @@ class GameConstants  //Couldn't rename, too much relied on "GameConstants" at th
   public final int laneThree = (height/16)*8;
   
   public final int frameCountUpdate = round(frameRate)*2;
-  public final int delayEntity = 40;
+  public final int delayEntity = 80;
   
   //Entity
   public final int entityXOffset = 40;
@@ -25,7 +25,7 @@ class GameConstants  //Couldn't rename, too much relied on "GameConstants" at th
   public final color Enemy = color(255, 0, 0);
   
   //Dynamic Variables
-  public float obstacleSpeed = 10;
+  public float obstacleSpeed = 5;
   public float entityLiveTime = 20;
   
   public int spawnLoopCount = 0;
