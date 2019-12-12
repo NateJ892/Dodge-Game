@@ -23,10 +23,11 @@ class GameFunctions
   
   public void createDeathScene()
   {
-    background(0);
+    //background(0);
     delay(1000);
     textSize(64);
     textAlign(CENTER);
+    fill(c.White);
     text("You Died!", width/2, (height/2)-40);
     textSize(32);
     text("Final Score: " + Score, width/2, height/2);
