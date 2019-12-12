@@ -24,24 +24,27 @@ class Obstacle
     Position = new PVector(width+StartOffset, c.getLane(Lane)+c.entityYOffset);
   }
   
-  public void update(position.playerPosition pos)
+  public void update(position.playerPosition pos, boolean alive)
   {
-    if (Position.x <= (-c.entityHeight))
+    if (alive)
     {
-      this.init((int)random(1, 4), (int)random(1, 50));
-    }
-    else
-    {
-      if (!(Collision(pos)))
+      if (Position.x <= (-c.entityHeight))
       {
-        Position.x -= c.obstacleSpeed;
-        noStroke();
-        fill(c.Enemy);
-        rect(Position.x, Position.y, c.entityWidth, c.entityHeight);
+        this.init((int)random(1, 4), (int)random(1, 50));
       }
       else
       {
-        G.createDeathScene();
+        if (!(Collision(pos)))
+        {
+          Position.x -= c.obstacleSpeed;
+          noStroke();
+          fill(c.Enemy);
+          rect(Position.x, Position.y, c.entityWidth, c.entityHeight);
+        }
+        else
+        {
+          G.createDeathScene();
+        }
       }
     }
   }
