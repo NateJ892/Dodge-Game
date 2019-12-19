@@ -1,3 +1,11 @@
+/**************************************************
+* Nathan Johnson                                  *
+* J. Juhn                                         *
+* ICS2O                                           *
+* 16/12/2019                                      *
+* Class Holds Repetitive/peridocly called methods *
+**************************************************/
+
 class GameFunctions
 {  
   GameConstants G = new GameConstants();
@@ -28,9 +36,9 @@ class GameFunctions
     textSize(64);
     textAlign(CENTER);
     fill(c.White);
-    text("You Died!", width/2, (height/2)-40);
+    text("You Died!", width/2, (height/4)-40);
     textSize(32);
-    text("Final Score: " + Score, width/2, height/2);
+    text("Final Score: " + Score, width/2, height/4);
     noLoop();
   }
   
