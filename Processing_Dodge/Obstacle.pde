@@ -1,3 +1,11 @@
+/*************************************
+* Nathan Johnson                     *
+* J. Juhn                            *
+* ICS2O                              *
+* 16/12/2019                         *
+* Class For Obstacles                *
+*************************************/
+
 class Obstacle
 {
   GameConstants c = new GameConstants();
