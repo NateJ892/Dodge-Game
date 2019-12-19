@@ -1,3 +1,11 @@
+/*************************************
+* Nathan Johnson                     *
+* J. Juhn                            *
+* ICS2O                              *
+* 16/12/2019                         *
+* Progam to draw an interacable game *
+*************************************/
+
 private int Score = 0;
 
 GameConstants c;
