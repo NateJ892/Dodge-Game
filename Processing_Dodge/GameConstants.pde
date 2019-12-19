@@ -1,3 +1,11 @@
+/***********************************************
+* Nathan Johnson                               *
+* J. Juhn                                      *
+* ICS2O                                        *
+* 16/12/2019                                   *
+* Class to hold "global" constants & variables *
+***********************************************/
+
 class GameConstants  //Couldn't rename, too much relied on "GameConstants" at this point, same for playerPosition enum
 {
   //Constants
